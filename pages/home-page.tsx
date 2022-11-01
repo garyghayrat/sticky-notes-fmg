@@ -2,12 +2,13 @@ import { Key, useEffect, useState } from "react";
 import type { NextPage } from "next";
 import { FetchRecipes, PostRecipes } from "./hooks/useFetchRecipes";
 import { Recipe } from "./types/Recipe";
+import RecipeList from "./components/RecipeList";
 
 type Props = {};
 
 const HomePage: NextPage = (props: Props) => {
-  const test = FetchRecipes();
-  console.log("data instide homepage is", test);
+  const recipes = FetchRecipes();
+  console.log("data instide homepage is", recipes);
 
   const callPostRecipes = () => {
     PostRecipes({
@@ -21,13 +22,12 @@ const HomePage: NextPage = (props: Props) => {
 
   return (
     <div>
-      {/* {data && console.log("data inside div is", data)} */}
-
-      {test &&
-        test?.map((recipe: any) => {
+      {/* {recipes &&
+        recipes?.map((recipe: any) => {
           return <h2 key={recipe.id}>{recipe.title}</h2>;
-        })}
+        })} */}
       <button onClick={callPostRecipes}>Test button</button>
+      {recipes && <RecipeList recipes={recipes} />}
     </div>
   );
 };

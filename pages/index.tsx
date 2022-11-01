@@ -5,11 +5,11 @@ import HomePage from "./home-page";
 const Home: NextPage = () => {
   return (
     <div>
-      <p className="font-extrabold">Hello</p>
+      <div>
+        <p className="font-serif text-2xl flex justify-center">Your Recipes</p>
+      </div>
       <NavBar />
       <HomePage />
-
-      <h2>Hello</h2>
     </div>
   );
 };
